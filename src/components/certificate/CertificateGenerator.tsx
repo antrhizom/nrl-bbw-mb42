@@ -196,14 +196,14 @@ export default function CertificateGenerator() {
         Herzlichen Glückwunsch!
       </h2>
       <p className="text-green-700 text-center mb-6">
-        Du hast das interaktive Merkblatt zur NRL IKT erfolgreich
+        Sie haben das interaktive Merkblatt zur NRL IKT erfolgreich
         durchgearbeitet.
       </p>
 
       {certificateNumber ? (
         <div className="bg-white border border-green-400 rounded-xl px-6 py-4 mb-6 shadow-sm text-center">
           <span className="text-xs uppercase tracking-widest text-green-600 block mb-1">
-            Deine Zertifikat-Nr.
+            Ihre Zertifikat-Nr.
           </span>
           <span className="text-lg md:text-xl font-mono font-bold text-green-900 tracking-wide">
             {certificateNumber}
@@ -221,12 +221,12 @@ export default function CertificateGenerator() {
         htmlFor="userName"
         className="text-sm font-medium text-green-800 mb-1"
       >
-        Dein Name (optional, erscheint auf dem Zertifikat)
+        Ihr Name (optional, erscheint auf dem Zertifikat)
       </label>
       <input
         id="userName"
         type="text"
-        placeholder="Dein Name"
+        placeholder="Ihr Name"
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
         className="w-full max-w-xs mb-6 px-4 py-2 border border-green-300 rounded-lg text-center text-green-900 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"

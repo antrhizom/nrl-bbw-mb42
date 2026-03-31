@@ -45,7 +45,7 @@ export function MerkblattProvider({ children }: { children: ReactNode }) {
 
   const canProceed = useMemo(() => {
     const sid = SECTION_IDS[currentIndex];
-    if (sid === "welcome" || sid === "abschluss") return true;
+    if (sid === "abschluss") return true;
     return completedSections.has(sid);
   }, [currentIndex, completedSections]);
 

@@ -8,8 +8,12 @@ export const GLOSSARY: Record<string, string> = {
   "Externe Wechselspeicher":
     "Tragbare Speichermedien wie USB-Sticks, externe Festplatten oder SD-Karten, die nicht von der Schule verwaltet werden.",
   MFA: "Mehr-Faktor-Authentifizierung – ein Sicherheitsverfahren, bei dem neben dem Passwort ein zweiter Faktor (z.B. SMS-Code, App) nötig ist.",
+  Sachdaten:
+    "Allgemeine schulische Informationen ohne Personenbezug, z.B. Stundenpläne, Lehrmittel-Listen, Raumpläne.",
   Personendaten:
     "Alle Angaben, die sich auf eine bestimmte oder bestimmbare Person beziehen (Name, Adresse, Noten etc.).",
+  "Besondere Personendaten":
+    "Besonders schützenswerte Angaben wie Gesundheitsdaten, ärztliche Zeugnisse, Disziplinarmassnahmen oder religiöse Überzeugungen.",
   Lernprofil:
     "Daten über den Lernfortschritt einer Person (z.B. Aufgabenresultate, bearbeitete Themen). Erlaubt im Schulkontext.",
   "Persönlichkeitsprofil":
