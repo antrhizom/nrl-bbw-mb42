@@ -1,29 +1,28 @@
 "use client";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
-import FlipCard from "@/components/FlipCard";
-import RoleHint from "@/components/RoleHint";
+import MerksatzCheck from "@/components/MerksatzCheck";
+import RoleAccordion from "@/components/RoleAccordion";
 
 export default function Datenschutz2Section() {
   const { markSectionComplete } = useMerkblatt();
   const sectionId = "datenschutz-2";
-  const flipCards = [
-    { title: "KI & Lerntechnologien", description: "Keine persönlichen/vertraulichen Daten in KI-Tools. Freiwilligkeit bei Registration, ausser bei regulären BBW-Angeboten." },
-    { title: "Aufnahmen", description: "Aufnahmen jeglicher Art (Bild, Ton, Video) nur mit ausdrücklichem Einverständnis der betroffenen Personen." },
-  ];
   return (
     <SectionCard chapterLabel="Kapitel 5" title="Datenschutz – KI & Aufnahmen">
       <p className="text-gray-700 leading-relaxed">
-        Generative KI-Tools erfordern verantwortungsvollen Umgang mit Daten. Aufnahmen von Personen bedürfen immer einer ausdrücklichen Einwilligung.
+        KI-Tools und Aufnahmen erfordern besonderen Umgang mit Daten.
       </p>
-      <RoleHint role="mitarbeitende">
-        Geben Sie keine Schuldaten in KI-Tools ein – auch nicht in anonymisierter Form, sofern ein Rückschluss auf Personen möglich wäre.
-      </RoleHint>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {flipCards.map((card, index) => (
-          <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markSectionComplete(sectionId)} />
-        ))}
-      </div>
+      <MerksatzCheck
+        statements={[
+          "Keine persönlichen oder vertraulichen Daten in KI-Tools eingeben. Bei Lerntechnologien besteht Freiwilligkeit, ausser bei regulären BBW-Angeboten.",
+          "Aufnahmen jeglicher Art (Bild, Ton, Video) nur mit ausdrücklichem Einverständnis der betroffenen Personen.",
+        ]}
+        sectionId={sectionId}
+        onAllChecked={() => markSectionComplete(sectionId)}
+      />
+      <RoleAccordion roles="Lehrpersonen & Mitarbeitende">
+        Geben Sie keine Schuldaten in KI-Tools ein. Die Anmeldung bei KI-Tools darf nicht erzwungen werden.
+      </RoleAccordion>
     </SectionCard>
   );
 }
