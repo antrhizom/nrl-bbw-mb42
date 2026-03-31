@@ -27,18 +27,37 @@ interface MerkblattContextType {
   goNext: () => void;
   goPrev: () => void;
   goTo: (index: number) => void;
-  markSectionComplete: (sectionId: string) => void;
+  markComplete: (sectionId: string, part: "flipcards" | "merksatz" | "welcome") => void;
 }
 
 const MerkblattContext = createContext<MerkblattContextType | null>(null);
 
 export function MerkblattProvider({ children }: { children: ReactNode }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [completedSections, setCompletedSections] = useState<Set<SectionId>>(new Set());
+  const [completions, setCompletions] = useState<Record<string, Set<string>>>({});
 
   const currentSectionId = SECTION_IDS[currentIndex];
   const totalSections = SECTION_IDS.length;
   const completableIds = SECTION_IDS.filter((id) => id !== "welcome" && id !== "abschluss");
+
+  const isSectionComplete = useCallback(
+    (sectionId: string) => {
+      if (sectionId === "welcome") return completions[sectionId]?.has("welcome") ?? false;
+      const parts = completions[sectionId];
+      if (!parts) return false;
+      return parts.has("flipcards") && parts.has("merksatz");
+    },
+    [completions]
+  );
+
+  const completedSections = useMemo(() => {
+    const set = new Set<SectionId>();
+    for (const id of SECTION_IDS) {
+      if (isSectionComplete(id)) set.add(id);
+    }
+    return set;
+  }, [isSectionComplete]);
+
   const completedCount = completableIds.filter((id) => completedSections.has(id)).length;
   const progress = Math.round((completedCount / completableIds.length) * 100);
   const isFullyCompleted = completedCount === completableIds.length;
@@ -46,14 +65,14 @@ export function MerkblattProvider({ children }: { children: ReactNode }) {
   const canProceed = useMemo(() => {
     const sid = SECTION_IDS[currentIndex];
     if (sid === "abschluss") return true;
-    return completedSections.has(sid);
-  }, [currentIndex, completedSections]);
+    return isSectionComplete(sid);
+  }, [currentIndex, isSectionComplete]);
 
-  const markSectionComplete = useCallback((sectionId: string) => {
-    setCompletedSections((prev) => {
-      const next = new Set(prev);
-      next.add(sectionId as SectionId);
-      return next;
+  const markComplete = useCallback((sectionId: string, part: "flipcards" | "merksatz" | "welcome") => {
+    setCompletions((prev) => {
+      const parts = new Set(prev[sectionId] || []);
+      parts.add(part);
+      return { ...prev, [sectionId]: parts };
     });
   }, []);
 
@@ -62,7 +81,7 @@ export function MerkblattProvider({ children }: { children: ReactNode }) {
   const goTo = useCallback((index: number) => { if (index >= 0 && index < totalSections) setCurrentIndex(index); }, [totalSections]);
 
   return (
-    <MerkblattContext.Provider value={{ currentIndex, currentSectionId, totalSections, progress, completedSections, canProceed, isFullyCompleted, goNext, goPrev, goTo, markSectionComplete }}>
+    <MerkblattContext.Provider value={{ currentIndex, currentSectionId, totalSections, progress, completedSections, canProceed, isFullyCompleted, goNext, goPrev, goTo, markComplete }}>
       {children}
     </MerkblattContext.Provider>
   );

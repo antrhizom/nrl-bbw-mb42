@@ -1,25 +1,35 @@
 "use client";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
+import FlipCard from "@/components/FlipCard";
 import MerksatzCheck from "@/components/MerksatzCheck";
 import InfoTerm from "@/components/InfoTerm";
 import RoleAccordion from "@/components/RoleAccordion";
 
 export default function VerstoesseSection() {
-  const { markSectionComplete } = useMerkblatt();
+  const { markComplete } = useMerkblatt();
   const sectionId = "verstoesse";
+  const flipCards = [
+    { title: "Massnahmen", description: "Klärendes Gespräch, dann abgestufte Konsequenzen. Die Schule haftet nicht für Schäden durch Nutzende." },
+    { title: "Rechtliche Basis", description: "NRL basiert auf Kantonsauftrag, gestützt auf IDG, Personalgesetz, Disziplinarreglement u.a." },
+  ];
   return (
     <SectionCard chapterLabel="Kapitel 7" title="Verstösse & Rechtliches">
       <p className="text-gray-700 leading-relaxed">
         Bei Verstössen greifen abgestufte Massnahmen. Zuständig sind <InfoTerm>TIKT</InfoTerm> und <InfoTerm>PIKT</InfoTerm>.
       </p>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {flipCards.map((card, index) => (
+          <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markComplete(sectionId, "flipcards")} />
+        ))}
+      </div>
       <MerksatzCheck
         statements={[
-          "Zuerst klärendes Gespräch, dann abgestufte Konsequenzen. Die Schule haftet nicht für Schäden durch Nutzende.",
-          "Die NRL basiert auf dem Kantonsauftrag, gestützt auf IDG, Personalgesetz, Disziplinarreglement u.a.",
+          "Zuerst klärendes Gespräch, dann abgestufte Konsequenzen.",
+          "Die NRL basiert auf dem Kantonsauftrag und geltendem Recht.",
         ]}
         sectionId={sectionId}
-        onAllChecked={() => markSectionComplete(sectionId)}
+        onAllChecked={() => markComplete(sectionId, "merksatz")}
       />
       <RoleAccordion roles="Lernende">
         Bei Verstössen können Ihre Eltern/Erziehungsberechtigten und Ihr Lehrbetrieb informiert werden.

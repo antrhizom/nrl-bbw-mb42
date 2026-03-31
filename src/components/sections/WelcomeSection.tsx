@@ -4,11 +4,11 @@ import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
 
 export default function WelcomeSection() {
-  const { markSectionComplete } = useMerkblatt();
+  const { markComplete } = useMerkblatt();
   const [checked, setChecked] = useState(false);
   const handleCheck = (value: boolean) => {
     setChecked(value);
-    if (value) markSectionComplete("welcome");
+    if (value) markComplete("welcome", "welcome");
   };
   return (
     <SectionCard chapterLabel="Willkommen" title="Merkblatt zur Nutzungsrichtlinie IKT">

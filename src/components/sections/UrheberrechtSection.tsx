@@ -1,25 +1,35 @@
 "use client";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
+import FlipCard from "@/components/FlipCard";
 import MerksatzCheck from "@/components/MerksatzCheck";
 import InfoTerm from "@/components/InfoTerm";
 import RoleAccordion from "@/components/RoleAccordion";
 
 export default function UrheberrechtSection() {
-  const { markSectionComplete } = useMerkblatt();
+  const { markComplete } = useMerkblatt();
   const sectionId = "urheberrecht";
+  const flipCards = [
+    { title: "Nutzung in der eigenen Klasse", description: "Gemäss GT7 erweiterte Rechte innerhalb der eigenen Klasse. Ausserhalb stark eingeschränkt." },
+    { title: "Neukreationen & KI", description: "KI-generierte Inhalte vor Veröffentlichung auf Urheberrechtsverletzungen prüfen. Volle Verantwortung." },
+  ];
   return (
     <SectionCard chapterLabel="Kapitel 6" title="Urheberrecht">
       <p className="text-gray-700 leading-relaxed">
         Das <InfoTerm>Urheberrecht</InfoTerm> schützt geistige Schöpfungen. Lernende werden durch moderne Medienanwendungen selbst zu Autorinnen und Autoren.
       </p>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {flipCards.map((card, index) => (
+          <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markComplete(sectionId, "flipcards")} />
+        ))}
+      </div>
       <MerksatzCheck
         statements={[
-          "In der eigenen Klasse hat die Schule gemäss GT7 erweiterte Nutzungsrechte. Ausserhalb ist die Nutzung stark eingeschränkt.",
-          "KI-generierte Inhalte vor Veröffentlichung auf Urheberrechtsverletzungen prüfen. Sie tragen die volle Verantwortung.",
+          "In der eigenen Klasse erweiterte Nutzungsrechte gemäss GT7. Ausserhalb stark eingeschränkt.",
+          "KI-Inhalte vor Veröffentlichung prüfen. Sie tragen die volle Verantwortung.",
         ]}
         sectionId={sectionId}
-        onAllChecked={() => markSectionComplete(sectionId)}
+        onAllChecked={() => markComplete(sectionId, "merksatz")}
       />
       <RoleAccordion roles="Lehrpersonen">
         Auch Werke der Lernenden sind urheberrechtlich geschützt. Klassenübergreifende Ordner mit geschützten Inhalten sind nicht erlaubt.
