@@ -25,8 +25,7 @@ export default function Datenschutz1Section() {
       </div>
       <MerksatzCheck
         statements={[
-          "Lernprofile sind erlaubt, Persönlichkeitsprofile nicht. Statistiken nicht vor der Klasse zeigen.",
-          "Ab 14 Jahren eigenständige Einwilligung. Besondere Personendaten mindestens vertraulich einstufen.",
+          "Lerntechnologien müssen datenschutzkonform sein.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

@@ -25,8 +25,7 @@ export default function UrheberrechtSection() {
       </div>
       <MerksatzCheck
         statements={[
-          "In der eigenen Klasse erweiterte Nutzungsrechte gemäss GT7. Ausserhalb stark eingeschränkt.",
-          "KI-Inhalte vor Veröffentlichung prüfen. Sie tragen die volle Verantwortung.",
+          "Mediale Schulprojekte und -arbeiten sind urheberrechtlich geschützte Produkte.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

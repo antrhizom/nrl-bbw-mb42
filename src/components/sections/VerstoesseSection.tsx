@@ -25,8 +25,7 @@ export default function VerstoesseSection() {
       </div>
       <MerksatzCheck
         statements={[
-          "Zuerst klärendes Gespräch, dann abgestufte Konsequenzen.",
-          "Die NRL basiert auf dem Kantonsauftrag und geltendem Recht.",
+          "Sicherheitsvorfälle und verdächtige Aktivitäten sofort melden.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

@@ -25,8 +25,7 @@ export default function Datensicherheit2Section() {
       </div>
       <MerksatzCheck
         statements={[
-          "Nur schulische Tools nutzen. E-Mails nicht weiterleiten. Clean-Desk/Clear-Screen beachten.",
-          "Respektvoll und sachlich kommunizieren. Vertrauliche Daten verlinken, nicht direkt posten.",
+          "Vertrauliche Daten in Teams verlinken, nicht direkt posten. Clean-Desk/Clear-Screen beachten.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

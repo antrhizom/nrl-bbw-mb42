@@ -25,8 +25,7 @@ export default function AllgemeinSection() {
       </div>
       <MerksatzCheck
         statements={[
-          "Die NRL gilt für alle Nutzenden. Private Nutzung ist erlaubt, schulische Zwecke haben Vorrang.",
-          "BYOD-Geräte brauchen Passwort-/PIN-Schutz und aktuelle Updates.",
+          "Support für private Geräte ist eingeschränkt. E-Mail und Kalender laufen über den Browser.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

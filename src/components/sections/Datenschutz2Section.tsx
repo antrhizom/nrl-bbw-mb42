@@ -24,8 +24,7 @@ export default function Datenschutz2Section() {
       </div>
       <MerksatzCheck
         statements={[
-          "Keine persönlichen oder vertraulichen Daten in KI-Tools eingeben.",
-          "Aufnahmen jeglicher Art nur mit ausdrücklichem Einverständnis der Betroffenen.",
+          "KI-generierte Inhalte auf Korrektheit und Urheberrechtsverletzungen prüfen.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

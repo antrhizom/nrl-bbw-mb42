@@ -25,8 +25,7 @@ export default function Datensicherheit1Section() {
       </div>
       <MerksatzCheck
         statements={[
-          "Schulinterne Daten in der Regel auf BBW-Speichern ablegen. Passwörter geheim halten, MFA nutzen.",
-          "Sicherheitsmassnahmen nicht umgehen. Sicherheitsupdates zeitnah installieren.",
+          "Sicherheitsupdates zeitnah installieren. Sicherheitsmassnahmen nicht umgehen.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}
