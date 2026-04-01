@@ -26,6 +26,7 @@ export default function Datensicherheit1Section() {
       <MerksatzCheck
         statements={[
           "MFA (Mehr-Faktor-Authentifizierung) bedeutet: Neben dem Passwort ist ein zweiter Faktor nötig (z.B. SMS-Code oder Authenticator-App).",
+          "Sicherheitsvorfälle, Verlust von IT-Geräten oder verdächtige Aktivitäten sofort dem PIKT-/TIKT-Team melden.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

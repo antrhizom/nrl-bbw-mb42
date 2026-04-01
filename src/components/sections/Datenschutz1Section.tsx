@@ -16,7 +16,10 @@ export default function Datenschutz1Section() {
   return (
     <SectionCard chapterLabel="Kapitel 5" title="Datenschutz – Grundlagen & Unterricht">
       <p className="text-gray-700 leading-relaxed">
-        <InfoTerm>Datenschutz</InfoTerm> schützt Personen vor missbräuchlicher Datenverwendung.
+        <InfoTerm>Datenschutz</InfoTerm> schützt Personen vor missbräuchlicher
+        Datenverwendung. Im Schulalltag betrifft das den Umgang mit
+        Lernendendaten, den Einsatz von Lerntechnologien und die Frage,
+        welche Informationen wie und wo weitergegeben werden dürfen.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (
@@ -30,8 +33,12 @@ export default function Datenschutz1Section() {
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}
       />
-      <RoleAccordion roles="Lehrpersonen">
+      <RoleAccordion roles="Lehrpersonen & Mitarbeitende">
         Lernende sind regelmässig zu datenschutzrechtlichen Themen zu sensibilisieren.
+        Beachten Sie die drei Schutzstufen: Sachdaten (öffentlich/intern), Personendaten (vertraulich)
+        und besondere Personendaten (streng vertraulich). Dokumente mit Personendaten oder besonderen
+        Personendaten sollten in der Regel nur auf der Verwaltungsebene oder im LIS abgelegt werden.
+        Die detaillierten Tabellen finden Sie in der vollständigen NRL.
       </RoleAccordion>
     </SectionCard>
   );

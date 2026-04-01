@@ -44,7 +44,7 @@ export function MerkblattProvider({ children }: { children: ReactNode }) {
   const isSectionComplete = useCallback(
     (sectionId: string) => {
       if (sectionId === "welcome") return completions[sectionId]?.has("welcome") ?? false;
-      if (sectionId === "sorgfalt-netzwerk") return completions[sectionId]?.has("merksatz") ?? false;
+      // sorgfalt-netzwerk now has both flipcards and merksatz
       const parts = completions[sectionId];
       if (!parts) return false;
       return parts.has("flipcards") && parts.has("merksatz");

@@ -25,7 +25,7 @@ export default function VerstoesseSection() {
       </div>
       <MerksatzCheck
         statements={[
-          "Sicherheitsvorfälle und verdächtige Aktivitäten sofort melden.",
+          "Die Schule behält sich Schadenersatzansprüche und Meldung an Behörden bei schweren Verstössen vor.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

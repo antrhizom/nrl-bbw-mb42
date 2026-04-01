@@ -1,23 +1,29 @@
 "use client";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
+import FlipCard from "@/components/FlipCard";
 import MerksatzCheck from "@/components/MerksatzCheck";
-import InfoTerm from "@/components/InfoTerm";
 
 export default function SorgfaltNetzwerkSection() {
   const { markComplete } = useMerkblatt();
   const sectionId = "sorgfalt-netzwerk";
+  const flipCards = [
+    { title: "Malware-Schutz", description: "Schutzsoftware darf nicht umgangen oder deaktiviert werden. Sicherheitsupdates zeitnah installieren. Nur vertrauenswürdige Geräte im Schulnetz." },
+    { title: "Netzwerk & Internet", description: "Schulnetz nicht unnötig beeinträchtigen. Sicherheitsmassnahmen (z.B. Firewall, Proxy) nicht umgehen. Zugang zu Webseiten ausserhalb des Grundauftrags ist eingeschränkt oder verboten (z.B. sexistische, gewaltverherrlichende, rassistische Inhalte)." },
+  ];
   return (
     <SectionCard chapterLabel="Kapitel 4" title="Sorgfalt, Netzwerk & Kommunikation">
       <p className="text-gray-700 leading-relaxed">
-        Der sorgfältige Umgang mit Geräten, die Nutzung des Schulnetzwerks und die respektvolle
-        Kommunikation sind grundlegende Pflichten aller Nutzenden.
+        Neben dem sorgfältigen Umgang mit Geräten und Daten gelten klare Regeln
+        für die Netzwerknutzung und die digitale Kommunikation.
       </p>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {flipCards.map((card, index) => (
+          <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markComplete(sectionId, "flipcards")} />
+        ))}
+      </div>
       <MerksatzCheck
         statements={[
-          "Behandeln Sie Schulgeräte und -daten sorgfältig. Sperren Sie den Bildschirm beim Verlassen des Arbeitsplatzes (Win+L) und lassen Sie keine vertraulichen Unterlagen offen liegen (Clean-Desk / Clear-Screen).",
-          "Schutzsoftware darf nicht umgangen oder deaktiviert werden. Sicherheitsupdates müssen zeitnah installiert werden. Nur vertrauenswürdige Geräte dürfen mit dem Schulnetz verbunden werden.",
-          "Das Schulnetz darf nicht unnötig beeinträchtigt werden. Sicherheitsmassnahmen (z.B. Firewall, Proxy) dürfen nicht umgangen werden. Der Zugang zu Webseiten ausserhalb des Grundauftrags ist eingeschränkt oder verboten (z.B. sexistische, gewaltverherrlichende und rassistische Internetseiten).",
           "Alle Beteiligten sind verpflichtet, in digitalen Interaktionen stets respektvoll, sachlich und konstruktiv zu agieren, diskriminierende oder beleidigende Inhalte zu vermeiden, den Datenschutz zu wahren und Spam sowie werbende Inhalte zu unterlassen.",
         ]}
         sectionId={sectionId}
