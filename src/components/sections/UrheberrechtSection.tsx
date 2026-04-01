@@ -14,7 +14,7 @@ export default function UrheberrechtSection() {
     { title: "Neukreationen & KI", description: "KI-generierte Inhalte vor Veröffentlichung auf Urheberrechtsverletzungen prüfen. Volle Verantwortung." },
   ];
   return (
-    <SectionCard chapterLabel="Kapitel 6" title="Urheberrecht">
+    <SectionCard chapterLabel="Kapitel 7" title="Urheberrecht">
       <p className="text-gray-700 leading-relaxed">
         Das <InfoTerm>Urheberrecht</InfoTerm> schützt geistige Schöpfungen. Lernende werden durch moderne Medienanwendungen selbst zu Autorinnen und Autoren.
       </p>
@@ -34,7 +34,7 @@ export default function UrheberrechtSection() {
         Auch Werke der Lernenden sind urheberrechtlich geschützt. Klassenübergreifende Ordner mit geschützten Inhalten sind nicht erlaubt.
       </RoleAccordion>
       <RoleAccordion roles="Lernende">
-        Auch bei Schularbeiten können Sie Urheberrecht verletzen – z.B. wenn Sie fremde Texte, Bilder oder KI-generierte Inhalte ohne Prüfung verwenden.
+        Sie verletzen das Urheberrecht, wenn Sie Schularbeiten ausserhalb der eigenen Klasse zeigen oder teilen, die ohne Erlaubnis urheberrechtlich geschützte Inhalte enthalten (z.B. fremde Texte, Bilder, Musik).
       </RoleAccordion>
     </SectionCard>
   );

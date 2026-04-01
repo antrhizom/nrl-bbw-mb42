@@ -7,10 +7,11 @@ const ALL_SECTIONS = [
   { key: "allgemein", label: "Kap. 1 – Allgemein & IT-Nutzung" },
   { key: "datensicherheit-1", label: "Kap. 2 – Datensicherheit: Grundlagen" },
   { key: "datensicherheit-2", label: "Kap. 3 – Kommunikation & Schutz" },
-  { key: "datenschutz-1", label: "Kap. 4 – Datenschutz: Grundlagen" },
-  { key: "datenschutz-2", label: "Kap. 5 – KI & Aufnahmen" },
-  { key: "urheberrecht", label: "Kap. 6 – Urheberrecht" },
-  { key: "verstoesse", label: "Kap. 7 – Verstösse & Rechtliches" },
+  { key: "sorgfalt-netzwerk", label: "Kap. 4 – Sorgfalt, Netzwerk & Kommunikation" },
+  { key: "datenschutz-1", label: "Kap. 5 – Datenschutz: Grundlagen" },
+  { key: "datenschutz-2", label: "Kap. 6 – KI & Aufnahmen" },
+  { key: "urheberrecht", label: "Kap. 7 – Urheberrecht" },
+  { key: "verstoesse", label: "Kap. 8 – Verstösse & Rechtliches" },
 ];
 
 export default function CompletionSection() {

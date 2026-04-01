@@ -25,7 +25,7 @@ export default function Datensicherheit2Section() {
       </div>
       <MerksatzCheck
         statements={[
-          "Vertrauliche Daten in Teams verlinken, nicht direkt posten. Clean-Desk/Clear-Screen beachten.",
+          "Vertrauliche Daten in Teams verlinken, nicht direkt posten. Clean-Desk/Clear-Screen beachten: Bildschirm beim Verlassen des Arbeitsplatzes sperren (Win+L), keine vertraulichen Unterlagen offen liegen lassen.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

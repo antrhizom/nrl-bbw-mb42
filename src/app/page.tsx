@@ -7,6 +7,7 @@ import WelcomeSection from "@/components/sections/WelcomeSection";
 import AllgemeinSection from "@/components/sections/AllgemeinSection";
 import Datensicherheit1Section from "@/components/sections/Datensicherheit1Section";
 import Datensicherheit2Section from "@/components/sections/Datensicherheit2Section";
+import SorgfaltNetzwerkSection from "@/components/sections/SorgfaltNetzwerkSection";
 import Datenschutz1Section from "@/components/sections/Datenschutz1Section";
 import Datenschutz2Section from "@/components/sections/Datenschutz2Section";
 import UrheberrechtSection from "@/components/sections/UrheberrechtSection";
@@ -15,7 +16,7 @@ import CompletionSection from "@/components/sections/CompletionSection";
 
 const SECTIONS = [
   WelcomeSection, AllgemeinSection, Datensicherheit1Section, Datensicherheit2Section,
-  Datenschutz1Section, Datenschutz2Section, UrheberrechtSection, VerstoesseSection, CompletionSection,
+  SorgfaltNetzwerkSection, Datenschutz1Section, Datenschutz2Section, UrheberrechtSection, VerstoesseSection, CompletionSection,
 ];
 
 export default function Home() {

@@ -14,7 +14,7 @@ export default function VerstoesseSection() {
     { title: "Rechtliche Basis", description: "NRL basiert auf Kantonsauftrag, gestützt auf IDG, Personalgesetz, Disziplinarreglement u.a." },
   ];
   return (
-    <SectionCard chapterLabel="Kapitel 7" title="Verstösse & Rechtliches">
+    <SectionCard chapterLabel="Kapitel 8" title="Verstösse & Rechtliches">
       <p className="text-gray-700 leading-relaxed">
         Bei Verstössen greifen abgestufte Massnahmen. Zuständig sind <InfoTerm>TIKT</InfoTerm> und <InfoTerm>PIKT</InfoTerm>.
       </p>

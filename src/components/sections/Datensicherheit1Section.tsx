@@ -25,7 +25,7 @@ export default function Datensicherheit1Section() {
       </div>
       <MerksatzCheck
         statements={[
-          "Sicherheitsupdates zeitnah installieren. Sicherheitsmassnahmen nicht umgehen.",
+          "MFA (Mehr-Faktor-Authentifizierung) bedeutet: Neben dem Passwort ist ein zweiter Faktor nötig (z.B. SMS-Code oder Authenticator-App).",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

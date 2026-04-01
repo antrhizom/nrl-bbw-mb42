@@ -10,11 +10,11 @@ export default function Datenschutz1Section() {
   const { markComplete } = useMerkblatt();
   const sectionId = "datenschutz-1";
   const flipCards = [
-    { title: "Im Unterricht", description: "Lernprofile erlaubt, Persönlichkeitsprofile nicht. Statistiken nicht vor der Klasse zeigen." },
+    { title: "Im Unterricht", description: "Lernprofile (Fortschritt, Resultate) sind erlaubt. Persönlichkeitsprofile (Charakter, Verhalten, Vorlieben) nicht. Statistiken nicht vor der Klasse zeigen." },
     { title: "Einwilligung & besondere Daten", description: "Ab 14 Jahren eigenständige Einwilligung (z.B. für Fotos). Besondere Personendaten mindestens vertraulich einstufen." },
   ];
   return (
-    <SectionCard chapterLabel="Kapitel 4" title="Datenschutz – Grundlagen & Unterricht">
+    <SectionCard chapterLabel="Kapitel 5" title="Datenschutz – Grundlagen & Unterricht">
       <p className="text-gray-700 leading-relaxed">
         <InfoTerm>Datenschutz</InfoTerm> schützt Personen vor missbräuchlicher Datenverwendung.
       </p>
@@ -25,13 +25,13 @@ export default function Datenschutz1Section() {
       </div>
       <MerksatzCheck
         statements={[
-          "Lerntechnologien müssen datenschutzkonform sein.",
+          "Keine Veröffentlichung von Aufnahmen (Bild, Ton, Video) ohne ausdrückliche Einwilligung der betroffenen Personen.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}
       />
       <RoleAccordion roles="Lehrpersonen">
-        Lernende sind regelmässig zu datenschutzrechtlichen Themen zu sensibilisieren. Lerntechnologien müssen datenschutzkonform sein.
+        Lernende sind regelmässig zu datenschutzrechtlichen Themen zu sensibilisieren.
       </RoleAccordion>
     </SectionCard>
   );

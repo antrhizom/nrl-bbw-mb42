@@ -13,7 +13,7 @@ export default function Datenschutz2Section() {
     { title: "Aufnahmen", description: "Aufnahmen jeglicher Art (Bild, Ton, Video) nur mit ausdrücklichem Einverständnis der betroffenen Personen." },
   ];
   return (
-    <SectionCard chapterLabel="Kapitel 5" title="Datenschutz – KI & Aufnahmen">
+    <SectionCard chapterLabel="Kapitel 6" title="Datenschutz – KI & Aufnahmen">
       <p className="text-gray-700 leading-relaxed">
         KI-Tools und Aufnahmen erfordern besonderen Umgang mit Daten.
       </p>
@@ -24,7 +24,7 @@ export default function Datenschutz2Section() {
       </div>
       <MerksatzCheck
         statements={[
-          "KI-generierte Inhalte auf Korrektheit und Urheberrechtsverletzungen prüfen.",
+          "KI-generierte Inhalte auf Korrektheit und Urheberrechtsverletzungen prüfen – insbesondere bei KI-Tools, die nicht im Angebot der Schule sind.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

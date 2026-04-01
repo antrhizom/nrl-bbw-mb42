@@ -7,6 +7,7 @@ export const SECTION_IDS = [
   "allgemein",
   "datensicherheit-1",
   "datensicherheit-2",
+  "sorgfalt-netzwerk",
   "datenschutz-1",
   "datenschutz-2",
   "urheberrecht",
@@ -43,6 +44,7 @@ export function MerkblattProvider({ children }: { children: ReactNode }) {
   const isSectionComplete = useCallback(
     (sectionId: string) => {
       if (sectionId === "welcome") return completions[sectionId]?.has("welcome") ?? false;
+      if (sectionId === "sorgfalt-netzwerk") return completions[sectionId]?.has("merksatz") ?? false;
       const parts = completions[sectionId];
       if (!parts) return false;
       return parts.has("flipcards") && parts.has("merksatz");
