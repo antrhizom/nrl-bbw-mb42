@@ -1,6 +1,8 @@
 export const GLOSSARY: Record<string, string> = {
   "IKT-Systeme":
-    "Informations- und Kommunikationstechnologien – alle digitalen Geräte, Netzwerke und Software der Schule.",
+    "Informations- und Kommunikationstechnologien – alles, was mit Medien und digitalen Systemen zu tun hat: Geräte, Netzwerke, Software der Schule.",
+  IKT:
+    "Informations- und Kommunikationstechnologie – alles, was mit Medien und digitalen Systemen zu tun hat.",
   Logdaten:
     "Automatisch aufgezeichnete Daten über Systemzugriffe, z.B. wer wann auf welchen Server zugegriffen hat.",
   TIKT: "Team Informatik und Kommunikationstechnologie – zuständig für den technischen IT-Betrieb der BBW.",

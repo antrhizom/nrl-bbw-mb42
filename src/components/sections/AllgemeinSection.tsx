@@ -25,7 +25,7 @@ export default function AllgemeinSection() {
       </div>
       <MerksatzCheck
         statements={[
-          "Die Schule bietet technischen Support für schulische Geräte. Für private Geräte (BYOD) ist der Support eingeschränkt – bei Problemen mit privaten Geräten kann die IT nur begrenzt helfen.",
+          "Die Schule unterstützt und berät zu den entsprechenden Supportzeiten. Für private Geräte (BYOD) ist der Support eingeschränkt – die gestellten Probleme können nicht vollumfänglich gelöst werden.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}
