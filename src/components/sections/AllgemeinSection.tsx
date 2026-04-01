@@ -17,7 +17,7 @@ export default function AllgemeinSection() {
       <p className="text-gray-700 leading-relaxed">
         Die NRL regelt den Umgang mit den <InfoTerm>IKT-Systemen</InfoTerm> der BBW.{" "}
         <InfoTerm>BYOD</InfoTerm>-Geräte müssen Mindestanforderungen erfüllen.
-        Das <InfoTerm>TIKT</InfoTerm>-Team der Schule unterstützt bei technischen Fragen.
+        Das <InfoTerm>TIKT-Team</InfoTerm> der Schule unterstützt bei technischen Fragen.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (

@@ -17,9 +17,9 @@ export default function Datensicherheit1Section() {
       <p className="text-gray-700 leading-relaxed">
         <InfoTerm>Datensicherheit</InfoTerm> schützt Daten vor Verlust und unbefugtem Zugriff.
         Die BBW verfügt über eine eigene <InfoTerm>Firewall</InfoTerm>. Bei Fragen
-        und Vorfällen helfen das <InfoTerm>PIKT</InfoTerm>-Team (pädagogisch-didaktische{" "}
-        <InfoTerm>IKT</InfoTerm>-Fragen) und das <InfoTerm>TIKT</InfoTerm>-Team
-        (technische <InfoTerm>IKT</InfoTerm>-Fragen).
+        und Vorfällen helfen das <InfoTerm>PIKT-Team</InfoTerm> und
+        das <InfoTerm>TIKT-Team</InfoTerm>. Die offiziellen Speicher der BBW
+        sind: Schulserver, Nextcloud, OneDrive, Teams, SharePoint und OpenOlat.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (

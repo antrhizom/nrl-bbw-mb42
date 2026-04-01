@@ -16,7 +16,7 @@ export default function VerstoesseSection() {
   return (
     <SectionCard chapterLabel="Kapitel 8" title="Verstösse & Rechtliches">
       <p className="text-gray-700 leading-relaxed">
-        Bei Verstössen greifen abgestufte Massnahmen. Zuständig sind <InfoTerm>TIKT</InfoTerm> und <InfoTerm>PIKT</InfoTerm>.
+        Bei Verstössen greifen abgestufte Massnahmen. Zuständig sind das <InfoTerm>TIKT-Team</InfoTerm> und das <InfoTerm>PIKT-Team</InfoTerm>.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (

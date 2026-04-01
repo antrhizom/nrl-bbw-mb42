@@ -5,8 +5,10 @@ export const GLOSSARY: Record<string, string> = {
     "Informations- und Kommunikationstechnologie – alles, was mit Medien und digitalen Systemen zu tun hat.",
   Logdaten:
     "Automatisch aufgezeichnete Daten über Systemzugriffe, z.B. wer wann auf welchen Server zugegriffen hat.",
-  TIKT: "Team Informatik und Kommunikationstechnologie – zuständig für den technischen IT-Betrieb der BBW.",
-  PIKT: "Pädagogische ICT – zuständig für den pädagogischen Einsatz von IT im Unterricht.",
+  TIKT: "Zuständig für den technischen IKT-Support der BBW.",
+  PIKT: "Zuständig für den pädagogisch-didaktischen IKT-Support der BBW.",
+  "TIKT-Team": "Zuständig für den technischen IKT-Support der BBW.",
+  "PIKT-Team": "Zuständig für den pädagogisch-didaktischen IKT-Support der BBW.",
   "Externe Wechselspeicher":
     "Tragbare Speichermedien wie USB-Sticks, externe Festplatten oder SD-Karten, die nicht von der Schule verwaltet werden.",
   MFA: "Mehr-Faktor-Authentifizierung – ein Sicherheitsverfahren, bei dem neben dem Passwort ein zweiter Faktor (z.B. SMS-Code, App) nötig ist.",
