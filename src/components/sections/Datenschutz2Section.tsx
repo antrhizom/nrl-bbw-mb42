@@ -30,7 +30,7 @@ export default function Datenschutz2Section() {
         onAllChecked={() => markComplete(sectionId, "merksatz")}
       />
       <RoleAccordion roles="Lehrpersonen & Mitarbeitende">
-        Geben Sie keine Schuldaten in KI-Tools ein. Die Anmeldung bei KI-Tools darf nicht erzwungen werden.
+        Geben Sie keine Schuldaten in KI-Tools ein. Die Anmeldung bei KI-Tools darf nicht erzwungen werden, ausser es handelt sich um ein entsprechend deklariertes Schulangebot. Studieren Sie als Orientierung die Lizenzübersicht der Schule.
       </RoleAccordion>
     </SectionCard>
   );

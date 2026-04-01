@@ -11,7 +11,7 @@ export default function Datensicherheit2Section() {
   const sectionId = "datensicherheit-2";
   const flipCards = [
     { title: "Kommunikationsregeln", description: "Nur schulische Tools (z.B. Teams). E-Mails nicht an private Postfächer weiterleiten. Vertrauliche Nachrichten verschlüsseln." },
-    { title: "Informationssicherheit", description: "Drei Schutzstufen: Sachdaten (öffentlich), Personendaten (vertraulich), besondere Personendaten (streng vertraulich)." },
+    { title: "Informationssicherheit", description: "Je nach Art der Information gilt eine andere Schutzstufe: Sachdaten (öffentlich), Personendaten (vertraulich), besondere Personendaten (streng vertraulich)." },
   ];
   return (
     <SectionCard chapterLabel="Kapitel 3" title="Datensicherheit – Kommunikation & Schutz">

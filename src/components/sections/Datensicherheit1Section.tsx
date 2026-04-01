@@ -16,7 +16,9 @@ export default function Datensicherheit1Section() {
     <SectionCard chapterLabel="Kapitel 2" title="Datensicherheit – Grundlagen">
       <p className="text-gray-700 leading-relaxed">
         <InfoTerm>Datensicherheit</InfoTerm> schützt Daten vor Verlust und unbefugtem Zugriff.
-        Die BBW verfügt über eine eigene <InfoTerm>Firewall</InfoTerm>.
+        Die BBW verfügt über eine eigene <InfoTerm>Firewall</InfoTerm>. Bei
+        Sicherheitsvorfällen ist das <InfoTerm>PIKT</InfoTerm> (pädagogische ICT) bzw.
+        das <InfoTerm>TIKT</InfoTerm> (technische ICT) zuständig.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (
