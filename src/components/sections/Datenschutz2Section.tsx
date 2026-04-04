@@ -10,7 +10,7 @@ export default function Datenschutz2Section() {
   const sectionId = "datenschutz-2";
   const flipCards = [
     { title: "KI & Lerntechnologien", description: "Keine persönlichen/vertraulichen Daten in KI-Tools. Freiwilligkeit bei Registration, ausser bei regulären BBW-Angeboten." },
-    { title: "Aufnahmen", description: "Aufnahmen jeglicher Art (Bild, Ton, Video) nur mit ausdrücklichem Einverständnis der betroffenen Personen." },
+    { title: "Aufnahmen & Wearables", description: "Vor jeder Aufnahme (Bild, Ton, Video) muss das Einverständnis aller betroffenen Personen eingeholt werden. Ohne Zustimmung dürfen Aufnahmen weder erstellt noch verbreitet werden." },
   ];
   return (
     <SectionCard chapterLabel="Kapitel 6" title="Datenschutz – KI & Aufnahmen">
@@ -25,6 +25,7 @@ export default function Datenschutz2Section() {
       <MerksatzCheck
         statements={[
           "Sie müssen sich nicht bei KI-Tools oder digitalen Lerntechnologien registrieren, wenn diese nicht zum Angebot der Schule gehören.",
+          "Smart Glasses (z.B. Ray-Ban Meta) und andere Wearables mit Kamera-, Mikrofon- oder KI-Funktion sind während des gesamten Schulbetriebs untersagt – im Unterricht, in Pausen, bei Prüfungen und in allen Räumlichkeiten der BBW.",
         ]}
         sectionId={sectionId}
         onAllChecked={() => markComplete(sectionId, "merksatz")}

@@ -50,4 +50,6 @@ export const GLOSSARY: Record<string, string> = {
     "Schadsoftware wie Viren, Trojaner oder Ransomware, die Daten beschädigen, stehlen oder Systeme lahmlegen kann.",
   BYOD:
     "Bring Your Own Device – private Geräte (Laptop, Tablet, Smartphone), die für Unterrichtszwecke in die Schule mitgebracht werden.",
+  Wearables:
+    "Am Körper tragbare Geräte mit Kamera-, Mikrofon- oder KI-Funktion (z.B. Smart Glasses, smarte Broschen). An der BBW während des gesamten Schulbetriebs untersagt.",
 };
