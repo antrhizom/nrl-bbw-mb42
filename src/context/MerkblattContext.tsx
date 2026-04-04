@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, useMemo, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useMemo, useEffect, ReactNode } from "react";
 
 export const SECTION_IDS = [
   "welcome",
@@ -16,6 +16,36 @@ export const SECTION_IDS = [
 ] as const;
 
 type SectionId = (typeof SECTION_IDS)[number];
+
+const STORAGE_KEY = "nrl-mb42-progress";
+
+function loadProgress(): { index: number; completions: Record<string, Set<string>> } {
+  if (typeof window === "undefined") return { index: 0, completions: {} };
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { index: 0, completions: {} };
+    const data = JSON.parse(raw);
+    const completions: Record<string, Set<string>> = {};
+    for (const [key, parts] of Object.entries(data.completions || {})) {
+      completions[key] = new Set(parts as string[]);
+    }
+    return { index: data.index || 0, completions };
+  } catch {
+    return { index: 0, completions: {} };
+  }
+}
+
+function saveProgress(index: number, completions: Record<string, Set<string>>) {
+  try {
+    const serializable: Record<string, string[]> = {};
+    for (const [key, parts] of Object.entries(completions)) {
+      serializable[key] = Array.from(parts);
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ index, completions: serializable }));
+  } catch {
+    // ignore storage errors
+  }
+}
 
 interface MerkblattContextType {
   currentIndex: number;
@@ -34,8 +64,13 @@ interface MerkblattContextType {
 const MerkblattContext = createContext<MerkblattContextType | null>(null);
 
 export function MerkblattProvider({ children }: { children: ReactNode }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [completions, setCompletions] = useState<Record<string, Set<string>>>({});
+  const [currentIndex, setCurrentIndex] = useState(() => loadProgress().index);
+  const [completions, setCompletions] = useState<Record<string, Set<string>>>(() => loadProgress().completions);
+
+  // Save to localStorage on changes
+  useEffect(() => {
+    saveProgress(currentIndex, completions);
+  }, [currentIndex, completions]);
 
   const currentSectionId = SECTION_IDS[currentIndex];
   const totalSections = SECTION_IDS.length;

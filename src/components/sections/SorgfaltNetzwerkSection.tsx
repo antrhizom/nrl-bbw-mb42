@@ -9,7 +9,7 @@ export default function SorgfaltNetzwerkSection() {
   const sectionId = "sorgfalt-netzwerk";
   const flipCards = [
     { title: "Malware-Schutz", description: "Schutzsoftware darf nicht umgangen oder deaktiviert werden. Sicherheitsupdates zeitnah installieren. Nur vertrauenswürdige Geräte im Schulnetz." },
-    { title: "Netzwerk & Internet", description: "Schulnetz nicht unnötig beeinträchtigen. Sicherheitsmassnahmen (z.B. Firewall, Proxy) nicht umgehen. Zugang zu Webseiten ausserhalb des Grundauftrags ist eingeschränkt oder verboten (z.B. sexistische, gewaltverherrlichende, rassistische Inhalte)." },
+    { title: "Netzwerk & Internet", description: "Schulnetz nicht unnötig beeinträchtigen. Sicherheitsmassnahmen (z.B. Firewall, Proxy) nicht umgehen. Der Zugang zu Webseiten, die nicht mit dem Schul- oder Arbeitsbetrieb zusammenhängen, ist eingeschränkt oder verboten (z.B. sexistische, gewaltverherrlichende, rassistische Inhalte)." },
   ];
   return (
     <SectionCard chapterLabel="Kapitel 4" title="Sorgfalt, Netzwerk & Kommunikation">
