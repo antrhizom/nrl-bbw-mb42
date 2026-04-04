@@ -3,11 +3,22 @@ import { useState } from "react";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
 
+const STORAGE_KEY = "nrl-mb42-welcome-checked";
+
+function loadWelcome(): boolean {
+  try { return localStorage.getItem(STORAGE_KEY) === "true"; } catch { return false; }
+}
+
 export default function WelcomeSection() {
   const { markComplete } = useMerkblatt();
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(() => {
+    const saved = loadWelcome();
+    if (saved) setTimeout(() => markComplete("welcome", "welcome"), 0);
+    return saved;
+  });
   const handleCheck = (value: boolean) => {
     setChecked(value);
+    try { localStorage.setItem(STORAGE_KEY, String(value)); } catch {}
     if (value) markComplete("welcome", "welcome");
   };
   return (

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { GLOSSARY } from "@/lib/glossary";
+import { speak, stopSpeaking } from "@/lib/speak";
 
 interface InfoTermProps {
   children: string;
@@ -31,8 +32,8 @@ export default function InfoTerm({ children }: InfoTermProps) {
   return (
     <span
       className="relative inline"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={() => { setOpen(true); speak(`${displayTerm}: ${explanation}`); }}
+      onMouseLeave={() => { setOpen(false); stopSpeaking(); }}
     >
       <span className="text-bbw-green-700 underline decoration-dotted decoration-bbw-green-400 underline-offset-2 font-medium cursor-help">
         {children}

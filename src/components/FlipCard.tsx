@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { speak, stopSpeaking } from "@/lib/speak";
 
 const STORAGE_PREFIX = "nrl-mb42-flip-";
 
@@ -76,6 +77,8 @@ export default function FlipCard({
   return (
     <button
       onClick={handleClick}
+      onMouseEnter={() => speak(isFlipped ? `${title}. ${description}` : title)}
+      onMouseLeave={stopSpeaking}
       className={`w-full text-left rounded-xl border-2 transition-all duration-300 cursor-pointer ${
         isFlipped
           ? "border-bbw-green-500 bg-bbw-green-50"

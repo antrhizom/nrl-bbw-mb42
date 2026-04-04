@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { speak, stopSpeaking } from "@/lib/speak";
 
 const STORAGE_PREFIX = "nrl-mb42-merksatz-";
 
@@ -60,6 +61,8 @@ export default function MerksatzCheck({ statements, sectionId, onAllChecked }: M
         return (
           <label
             key={`${sectionId}-${i}`}
+            onMouseEnter={() => speak(text)}
+            onMouseLeave={stopSpeaking}
             className={`flex items-start gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all ${
               isChecked
                 ? "border-bbw-green-500 bg-bbw-green-50"
