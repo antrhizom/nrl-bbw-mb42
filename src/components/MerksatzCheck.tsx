@@ -2,6 +2,19 @@
 
 import { useState, useEffect, useRef } from "react";
 
+const STORAGE_PREFIX = "nrl-mb42-merksatz-";
+
+function loadChecked(sectionId: string): Set<number> {
+  try {
+    const raw = localStorage.getItem(STORAGE_PREFIX + sectionId);
+    return raw ? new Set(JSON.parse(raw) as number[]) : new Set();
+  } catch { return new Set(); }
+}
+
+function saveChecked(sectionId: string, checked: Set<number>) {
+  try { localStorage.setItem(STORAGE_PREFIX + sectionId, JSON.stringify(Array.from(checked))); } catch {}
+}
+
 interface MerksatzCheckProps {
   statements: string[];
   sectionId: string;
@@ -9,8 +22,16 @@ interface MerksatzCheckProps {
 }
 
 export default function MerksatzCheck({ statements, sectionId, onAllChecked }: MerksatzCheckProps) {
-  const [checked, setChecked] = useState<Set<number>>(new Set());
+  const [checked, setChecked] = useState<Set<number>>(() => loadChecked(sectionId));
   const calledRef = useRef(false);
+
+  // Fire completion if already all checked on mount
+  useEffect(() => {
+    if (checked.size === statements.length && !calledRef.current) {
+      calledRef.current = true;
+      onAllChecked();
+    }
+  }, []);
 
   useEffect(() => {
     if (checked.size === statements.length && !calledRef.current) {
@@ -24,6 +45,7 @@ export default function MerksatzCheck({ statements, sectionId, onAllChecked }: M
       const next = new Set(prev);
       if (next.has(index)) next.delete(index);
       else next.add(index);
+      saveChecked(sectionId, next);
       return next;
     });
   };

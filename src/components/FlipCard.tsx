@@ -2,7 +2,20 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 
-// Global tracker for flipped cards per section
+const STORAGE_PREFIX = "nrl-mb42-flip-";
+
+function loadFlipped(sectionId: string): Set<number> {
+  try {
+    const raw = localStorage.getItem(STORAGE_PREFIX + sectionId);
+    return raw ? new Set(JSON.parse(raw) as number[]) : new Set();
+  } catch { return new Set(); }
+}
+
+function saveFlipped(sectionId: string, flipped: Set<number>) {
+  try { localStorage.setItem(STORAGE_PREFIX + sectionId, JSON.stringify(Array.from(flipped))); } catch {}
+}
+
+// Global tracker (synced with localStorage)
 const flippedTracker: Record<string, Set<number>> = {};
 
 interface FlipCardProps {
@@ -22,17 +35,31 @@ export default function FlipCard({
   sectionId,
   onAllFlipped,
 }: FlipCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false);
+  // Initialize from localStorage
+  if (!flippedTracker[sectionId]) {
+    flippedTracker[sectionId] = loadFlipped(sectionId);
+  }
+
+  const [isFlipped, setIsFlipped] = useState(() => flippedTracker[sectionId].has(index));
   const calledRef = useRef(false);
 
+  // Fire completion if already all flipped on mount
+  useEffect(() => {
+    if (flippedTracker[sectionId]?.size === total && !calledRef.current) {
+      calledRef.current = true;
+      onAllFlipped();
+    }
+  }, [sectionId, total, onAllFlipped]);
+
   const handleClick = useCallback(() => {
-    if (!isFlipped) {
-      setIsFlipped(true);
-      if (!flippedTracker[sectionId]) flippedTracker[sectionId] = new Set();
+    const newState = !isFlipped;
+    setIsFlipped(newState);
+    if (newState) {
       flippedTracker[sectionId].add(index);
     } else {
-      setIsFlipped(false);
+      flippedTracker[sectionId].delete(index);
     }
+    saveFlipped(sectionId, flippedTracker[sectionId]);
   }, [isFlipped, sectionId, index]);
 
   useEffect(() => {
