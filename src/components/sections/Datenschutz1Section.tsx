@@ -2,7 +2,6 @@
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
 import FlipCard from "@/components/FlipCard";
-import MerksatzCheck from "@/components/MerksatzCheck";
 import InfoTerm from "@/components/InfoTerm";
 import RoleAccordion from "@/components/RoleAccordion";
 
@@ -26,13 +25,6 @@ export default function Datenschutz1Section() {
           <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markComplete(sectionId, "flipcards")} />
         ))}
       </div>
-      <MerksatzCheck
-        statements={[
-          "Keine Veröffentlichung von Aufnahmen (Bild, Ton, Video) ohne ausdrückliche Einwilligung der betroffenen Personen.",
-        ]}
-        sectionId={sectionId}
-        onAllChecked={() => markComplete(sectionId, "merksatz")}
-      />
       <RoleAccordion roles="Lehrpersonen & Mitarbeitende">
         Lernende sind regelmässig zu datenschutzrechtlichen Themen zu sensibilisieren.
         Beachten Sie die drei Schutzstufen: Sachdaten (öffentlich/intern), Personendaten (vertraulich)

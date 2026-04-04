@@ -44,7 +44,7 @@ export function MerkblattProvider({ children }: { children: ReactNode }) {
   const isSectionComplete = useCallback(
     (sectionId: string) => {
       if (sectionId === "welcome") return completions[sectionId]?.has("welcome") ?? false;
-      // sorgfalt-netzwerk now has both flipcards and merksatz
+      if (sectionId === "datenschutz-1") return completions[sectionId]?.has("flipcards") ?? false;
       const parts = completions[sectionId];
       if (!parts) return false;
       return parts.has("flipcards") && parts.has("merksatz");
