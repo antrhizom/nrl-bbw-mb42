@@ -1,6 +1,7 @@
 "use client";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
+import SpeakableText from "@/components/SpeakableText";
 import FlipCard from "@/components/FlipCard";
 import MerksatzCheck from "@/components/MerksatzCheck";
 import RoleAccordion from "@/components/RoleAccordion";
@@ -14,9 +15,9 @@ export default function Datenschutz2Section() {
   ];
   return (
     <SectionCard chapterLabel="Kapitel 6" title="Datenschutz – KI & Aufnahmen">
-      <p className="text-gray-700 leading-relaxed">
+      <SpeakableText className="text-gray-700 leading-relaxed">
         KI-Tools und Aufnahmen erfordern besonderen Umgang mit Daten.
-      </p>
+      </SpeakableText>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (
           <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markComplete(sectionId, "flipcards")} />

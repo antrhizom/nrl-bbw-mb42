@@ -1,6 +1,7 @@
 "use client";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
+import SpeakableText from "@/components/SpeakableText";
 import FlipCard from "@/components/FlipCard";
 import MerksatzCheck from "@/components/MerksatzCheck";
 import InfoTerm from "@/components/InfoTerm";
@@ -15,9 +16,9 @@ export default function VerstoesseSection() {
   ];
   return (
     <SectionCard chapterLabel="Kapitel 8" title="Verstösse & Rechtliches">
-      <p className="text-gray-700 leading-relaxed">
+      <SpeakableText className="text-gray-700 leading-relaxed">
         Bei Verstössen greifen abgestufte Massnahmen. Zuständig sind das <InfoTerm>TIKT-Team</InfoTerm> und das <InfoTerm>PIKT-Team</InfoTerm>.
-      </p>
+      </SpeakableText>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (
           <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markComplete(sectionId, "flipcards")} />

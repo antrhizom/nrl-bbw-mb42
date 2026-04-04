@@ -1,6 +1,7 @@
 "use client";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
+import SpeakableText from "@/components/SpeakableText";
 import FlipCard from "@/components/FlipCard";
 import MerksatzCheck from "@/components/MerksatzCheck";
 import InfoTerm from "@/components/InfoTerm";
@@ -14,13 +15,13 @@ export default function Datensicherheit1Section() {
   ];
   return (
     <SectionCard chapterLabel="Kapitel 2" title="Datensicherheit – Grundlagen">
-      <p className="text-gray-700 leading-relaxed">
+      <SpeakableText className="text-gray-700 leading-relaxed">
         <InfoTerm>Datensicherheit</InfoTerm> schützt Daten vor Verlust und unbefugtem Zugriff.
         Die BBW verfügt über eine eigene <InfoTerm>Firewall</InfoTerm>. Bei Fragen
         und Vorfällen helfen das <InfoTerm>PIKT-Team</InfoTerm> und
         das <InfoTerm>TIKT-Team</InfoTerm>. Die offiziellen Speicher der BBW
         sind: Schulserver, Nextcloud, OneDrive, Teams, SharePoint und OpenOlat.
-      </p>
+      </SpeakableText>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (
           <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markComplete(sectionId, "flipcards")} />

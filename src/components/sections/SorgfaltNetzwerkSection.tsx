@@ -1,6 +1,7 @@
 "use client";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
+import SpeakableText from "@/components/SpeakableText";
 import FlipCard from "@/components/FlipCard";
 import MerksatzCheck from "@/components/MerksatzCheck";
 
@@ -13,10 +14,10 @@ export default function SorgfaltNetzwerkSection() {
   ];
   return (
     <SectionCard chapterLabel="Kapitel 4" title="Sorgfalt, Netzwerk & Kommunikation">
-      <p className="text-gray-700 leading-relaxed">
+      <SpeakableText className="text-gray-700 leading-relaxed">
         Neben dem sorgfältigen Umgang mit Geräten und Daten gelten klare Regeln
         für die Netzwerknutzung und die digitale Kommunikation.
-      </p>
+      </SpeakableText>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (
           <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markComplete(sectionId, "flipcards")} />

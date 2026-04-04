@@ -1,6 +1,7 @@
 "use client";
 import { useMerkblatt } from "@/context/MerkblattContext";
 import SectionCard from "@/components/SectionCard";
+import SpeakableText from "@/components/SpeakableText";
 import FlipCard from "@/components/FlipCard";
 import InfoTerm from "@/components/InfoTerm";
 import RoleAccordion from "@/components/RoleAccordion";
@@ -14,12 +15,12 @@ export default function Datenschutz1Section() {
   ];
   return (
     <SectionCard chapterLabel="Kapitel 5" title="Datenschutz – Grundlagen & Unterricht">
-      <p className="text-gray-700 leading-relaxed">
+      <SpeakableText className="text-gray-700 leading-relaxed">
         <InfoTerm>Datenschutz</InfoTerm> schützt Personen vor missbräuchlicher
         Datenverwendung. Im Schulalltag betrifft das den Umgang mit
         Lernendendaten, den Einsatz von Lerntechnologien und die Frage,
         welche Informationen wie und wo weitergegeben werden dürfen.
-      </p>
+      </SpeakableText>
       <div className="grid gap-4 sm:grid-cols-2">
         {flipCards.map((card, index) => (
           <FlipCard key={index} title={card.title} description={card.description} index={index} total={flipCards.length} sectionId={sectionId} onAllFlipped={() => markComplete(sectionId, "flipcards")} />
