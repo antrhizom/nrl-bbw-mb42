@@ -107,6 +107,14 @@ function prepareForSpeech(raw: string): string {
   // Aufzählungszeichen entfernen
   t = t.replace(/[•·–—]/g, ", ");
 
+  // Emojis und Symbole komplett entfernen
+  t = t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}\u{200D}\u{20E3}\u{E0020}-\u{E007F}\u2139\u2714\u2716\u2728\u274C\u274E\u2705\u00A9\u2696]/gu, "");
+
+  // "Bestätigen Sie die Merksätze (0/1)" etc. entfernen
+  t = t.replace(/Bestätigen Sie die Merksätze \(\d+\/\d+\)/g, "");
+  t = t.replace(/Fortschritt/g, "");
+  t = t.replace(/\d+%/g, "");
+
   // Mehrfache Leerzeichen und Kommas bereinigen
   t = t.replace(/,\s*,/g, ",");
   t = t.replace(/\s+/g, " ");
